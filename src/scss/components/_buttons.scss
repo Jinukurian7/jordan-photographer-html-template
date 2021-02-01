@@ -1,0 +1,39 @@
+.btn {
+    padding: 15px 26px;
+    line-height: 1.15;
+    text-align: center;
+    background: transparent;
+    color: $color-dark;
+    border-radius: 50px;
+    letter-spacing: 2px;
+    border: 1px solid $color-dark;
+    text-transform: none;
+    z-index: 1;
+    overflow: hidden;
+    font-family: $font-family-btn;
+    font-weight: bold;
+    transition: color 0.25s ease-in-out, background-color  0.25s ease-in-out;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        cursor: pointer;
+        color: $white;
+        background: $color-dark;
+        outline: 0;
+        border: 1px solid $color-dark;
+    }
+    &-secondary {
+        background: $color-dark;
+        color: $white;
+        border-radius: 50px;
+        letter-spacing: 0.07em;
+        border: 1px solid $color-dark;
+        &:hover,
+        &:focus {
+            color: $color-dark;
+            background: transparent;
+            outline: 0;
+            border: 1px solid $color-dark;
+        }
+    }
+}

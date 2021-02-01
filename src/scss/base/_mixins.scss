@@ -1,0 +1,152 @@
+// break points 
+
+
+@mixin bd-xxlg {
+    @media only screen and (min-width: $screen-xxlg) {
+        @content;
+    }
+}
+
+@mixin bd-xxlg-bl {
+    @media only screen and (max-width: $screen-xxlg - 1) {
+        @content;
+    }
+}
+
+@mixin bd-xlg {
+    @media only screen and (min-width: $screen-xlg) {
+        @content;
+    }
+}
+
+@mixin bd-xlg-bl {
+    @media only screen and (max-width: $screen-xlg - 1) {
+        @content;
+    }
+}
+
+@mixin bd-xxl {
+    @media screen and (min-width: $screen-xxl) {
+        @content;
+    }
+}
+
+@mixin bd-xxl-bl {
+    @media screen and (max-width: $screen-xxl - 1) {
+        @content;
+    }
+}
+
+@mixin bd-xl {
+    @media screen and (min-width: $screen-xl) {
+        @content;
+    }
+}
+
+@mixin bd-xl-bl {
+    @media screen and (max-width: $screen-xl - 1) {
+        @content;
+    }
+}
+
+@mixin bd-lg {
+    @media screen and (min-width: $screen-lg) {
+        @content;
+    }
+}
+
+@mixin bd-lg-bl {
+    @media screen and (max-width: $screen-lg - 1) {
+        @content;
+    }
+}
+
+@mixin bd-md {
+    @media screen and (min-width: $screen-md) {
+        @content;
+    }
+}
+
+@mixin bd-md-bl {
+    @media screen and (max-width: $screen-md - 1) {
+        @content;
+    }
+}
+
+@mixin bd-tab {
+    @media screen and (min-width: $screen-tab) {
+        @content;
+    }
+}
+
+@mixin bd-tab-bl {
+    @media screen and (max-width: $screen-tab - 1) {
+        @content;
+    }
+}
+
+@mixin bd-sm {
+    @media screen and (min-width: $screen-sm) {
+        @content;
+    }
+}
+
+@mixin bd-sm-bl {
+    @media screen and (max-width: $screen-sm - 1) {
+        @content;
+    }
+}
+
+@mixin bd-xs {
+    @media screen and (min-width: $screen-xs) {
+        @content;
+    }
+}
+
+@mixin bd-xs-bl {
+    @media screen and (max-width: $screen-xs - 1) {
+        @content;
+    }
+}
+
+@mixin bd-sm-md {
+    @media screen and (min-width: $screen-sm) and (max-width: $screen-md - 1) {
+        @content;
+    }
+}
+
+@mixin bd-custom-min($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin bd-custom-max($width) {
+    @media screen and (max-width: $width - 1) {
+        @content;
+    }
+}
+
+@mixin bd-bw($from, $to) {
+    @media screen and (min-width: $from) and (max-width: $to - 1) {
+        @content;
+    }
+}
+
+// px to Rem 
+
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    // font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// letter spacing 
+
+@mixin letter-spacing($spacing) {
+    letter-spacing: ($spacing / 1000) * 1em;
+}

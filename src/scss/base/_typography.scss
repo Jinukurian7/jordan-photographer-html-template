@@ -1,0 +1,64 @@
+html,body {
+    font-family: $font-family;
+    color: $color-dark;
+    background: $white;
+    font-weight: 400;
+    font-size: 16px;
+    font-feature-settings: "lnum";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $heading-color;
+    font-family: $font-family-heading;
+    font-weight: 400;
+    word-wrap: break-word;
+    line-height: 1.2;
+    span {
+        display: inline-block;
+    }
+    em {
+        display: block;
+        font-weight: 300;
+        @include font-size(18px);
+        font-style: italic;
+    }
+}
+
+strong {
+    font-weight: 900;
+}
+
+a {
+    font-family: $font-family;
+}
+
+p {
+    @include font-size(16px);
+    line-height: 1.7;
+    font-family: $font-family;
+}
+h1 {
+    @include font-size(38px);
+}
+h2 {
+    @include font-size(36px);
+}
+h3 {
+    @include font-size(28px);
+}
+h4 {
+    @include font-size(24px);
+}
+h5 {
+    @include font-size(21px);
+}
+h6 {
+    @include font-size(18px);
+}

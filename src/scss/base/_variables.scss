@@ -1,0 +1,59 @@
+// paths 
+$image_path : "../images";
+$font_path  :  "../fonts";
+
+$circular: 'Circular Std', sans-serif;
+$domaine: 'Domaine Sans Display', sans-serif;
+
+$font-family: $circular;
+$font-family-heading: $domaine;
+$font-family-btn: $circular;
+
+$color-blue : #089DF5;
+$color-green: #2CCB4D;
+$color-orange: #fab325;
+$color-yellow: #f2b02b;
+$color-red: #D56D5C;
+$color-cyan: #6AB3AF;
+$color-violet: #9836DD;
+$color-black: #000000;
+$color-dark: #212529;
+$color-grey: #b7b7b7;
+$color-white: #fff;
+$color-light: #d7d7d7;
+
+$theme: #172734;
+$gold: #F3B329;
+$white: #ffffff;
+$black: #000000;
+$text: #191F1F;
+
+$leader: #634b4b;
+$lab: #A1653C;
+$culture: #503641;
+$team: #735272;
+$executive: #687370;
+
+$heading-color: $color-dark;
+$border-color: $color-grey;
+
+$screen-xs : 480px;
+$screen-sm : 641px;
+$screen-tab : 768px;
+$screen-md : 992px;
+$screen-lg : 1025px;
+$screen-xl : 1200px;
+$screen-xxl : 1280px;
+$screen-xlg : 1440px;
+$screen-xxlg : 1640px;
+
+$grid-gutter-width-base : 30px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl,
+  xxl: $screen-xxl,
+);
