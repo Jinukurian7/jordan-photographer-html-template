@@ -44,6 +44,9 @@
         }
         .dark-bg & {
             color: #ffffff;
+            &:after {
+                background-color: #ffffff;
+            }
         }
         &:hover, &:focus {
             text-decoration: none;

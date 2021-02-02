@@ -234,7 +234,7 @@ a.navbar-brand {
             margin-bottom: 0;
         }
     }
-    h1,p,span {
+    .o-title,p,span {
         color: #03325B;
     }
 
@@ -248,7 +248,7 @@ a.navbar-brand {
     }
     .banner & {
         overflow: hidden;
-        h1, p, span {
+        .o-title, p, span {
             color: #fff;
         }
     }

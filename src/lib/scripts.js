@@ -11,6 +11,7 @@
             this.lazyLoad();
             this.detectAnimation();
             this.featuredSlider();
+            this.mouseCursor();
             this.textAnim();
             this.changeBg();
             this.footerParallax();
@@ -445,6 +446,31 @@
             })
         },
 
+        mouseCursor : function() {
+            var $cursor = $('.drag-cursor'),
+            $section = $('.featured-section'); 
+
+            function moveCircle(e) {
+                TweenLite.to($cursor, 0.3, {
+                css: {
+                    left: e.pageX,
+                    top: e.pageY
+                }
+                });
+            }
+
+            var flag = false;
+            $($section).mouseover(function(){
+            flag = true;
+            TweenLite.to($cursor,0.4,{scale:1,autoAlpha:1})
+            $($section).on('mousemove', moveCircle);
+            });
+            $($section).mouseout(function(){
+                flag = false;
+                TweenLite.to($cursor,0.4,{scale:0.1,autoAlpha:0})
+            });
+        },
+
         textAnim: function() {
             
             var $title = $('.section .title');
@@ -482,9 +508,7 @@
             .setTween(tween)
             .addTo(controller);
         },
-        mouseCursor: function() {
-            
-        }
+        
     };
     JORDAN.init();
 }(jQuery));
@@ -494,3 +518,5 @@
 //     el: document.querySelector('[data-scroll-container]'),
 //     smooth: true
 // })
+
+
