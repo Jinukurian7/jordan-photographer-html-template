@@ -4,6 +4,28 @@
         border: 1px solid #ffffff;
         margin: 0;
     }
+    .drag-cursor {
+        width: 88px;
+        height: 88px;
+        background: #252525;
+        border-radius: 50%;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 9;
+        user-select: none;
+        pointer-events: none;
+        transition: opacity .2s ease;
+        opacity: 0;
+        transform: translate3d(50vw,50vh,0);
+        span {
+            color: #ffffff;
+            display: block;
+            transform: rotate(-45deg);
+        }
+    }
 }
 
 .featured-section {
@@ -15,6 +37,7 @@
         display: flex;
         flex-direction: row;
     }
+
     .section-title {
         min-width: 30%;
         &-inner {
@@ -83,6 +106,7 @@
         &-inner {
             padding-top: 134%;
             position: relative;
+            overflow: hidden;
             figure {
                 position: absolute;
                 top: 0;
@@ -91,9 +115,16 @@
                 height: 100%;
                 background-size: cover;
                 background-position: 50% 50%;
+                transition: transform ease 0.25s;
+            }
+            &:hover, &:active {
+                figure {
+                    transform: scale(1.15);
+                }
             }
         }
     }
+
     &.tab-content-wrapper {
         padding-left: 100px;
         padding-right: 100px;
@@ -103,11 +134,26 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        border-bottom: 0;
-        border-top: 1px solid #ffffff;
+        border: 0;;
         margin-top: 100px;
         padding-top: 175px;
         margin-bottom: 60px;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            left: 0;
+            background: #ffffff;
+            height: 2px;
+            transform: scaleX(0);
+            transition: transform ease-in 0.75s;
+        }
+        &.animated:before {
+            transform: scaleX(1);
+        }
+        
         .nav-link {
             font-family: $domaine;
             font-weight: 500;
@@ -166,4 +212,8 @@
             }
         }
     }
+}
+
+.o-title {
+    overflow: hidden;
 }

@@ -1,30 +1,36 @@
 header.site__header {
-    position: fixed;
+    height: 57px;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 999;
+    position: absolute;
+    &.fixed {
+        position: fixed;
+    }
 }
 
 .header-wrapper {
     position: relative;
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        transform: translateY(-100%);
-        transition: transform ease 0.2s;
-        .dark-bg & {
-            background: #121212;
+    .active & {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: translateY(-100%);
+            transition: transform ease 0.2s;
+            .dark-bg & {
+                background: #121212;
+            }
         }
     }
     .fixed & {
         &:before {
             transform: translateY(0);
-            box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+            box-shadow: none;
         }
         .dark-bg & {
             &:before {
@@ -62,6 +68,9 @@ a.navbar-brand {
     img.logo-white {
         opacity: 1;
         .fixed & {
+            opacity: 1;
+        }
+        .active & {
             opacity: 0;
         }
         .dark-bg & {
@@ -77,6 +86,9 @@ a.navbar-brand {
         transition: opacity ease 0.2s;
         will-change: opacity;
         .fixed & {
+            opacity: 0;
+        }
+        .active & {
             opacity: 1;
         }
         .dark-bg & {
@@ -94,6 +106,9 @@ a.navbar-brand {
             cursor: pointer;
             font-weight: 400;
             .fixed & {
+                color: #fff;
+            }
+            .active & {
                 color: #121212;
             }
             .dark-bg & {
@@ -105,6 +120,9 @@ a.navbar-brand {
                 color: #fff;
                 display: block;
                 .fixed & {
+                    color: #fff;
+                }
+                .active & {
                     color: #121212;
                 }
                 .dark-bg & {
@@ -188,15 +206,7 @@ a.navbar-brand {
 
 .text-block {
     text-align: center;
-    h1 {
-        font-weight: 600;
-        @include font-size(50px);
-        line-height: 110%;
-        text-align: center;
-        @include bd-tab {
-            font-size: 6.25vw;
-        }
-    }
+    overflow: hidden;
     span {
         display: block;
         font-weight: normal;
@@ -205,6 +215,24 @@ a.navbar-brand {
         text-align: center;
         letter-spacing: 1.28em;
         text-transform: uppercase;
+    }
+    .o-title {
+        margin-bottom: 0;
+        &, > span {
+            font-weight: 600;
+            @include font-size(50px);
+            line-height: 110%;
+            text-align: center;
+            @include bd-tab {
+                font-size: 6.25vw;
+            }
+        }
+        > span {
+            display: inline-block;
+            letter-spacing: 0px;
+            text-transform: none;
+            margin-bottom: 0;
+        }
     }
     h1,p,span {
         color: #03325B;
@@ -219,6 +247,7 @@ a.navbar-brand {
         }
     }
     .banner & {
+        overflow: hidden;
         h1, p, span {
             color: #fff;
         }

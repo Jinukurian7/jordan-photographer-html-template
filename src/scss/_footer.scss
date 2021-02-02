@@ -9,7 +9,7 @@
         text-align: center;
         color: #000000;
         transition: color ease 0.15s;
-        margin-bottom: 80px;
+        margin-bottom: 0px;
         @include bd-tab {
             font-size: 7.75vw;
         }
@@ -83,10 +83,12 @@ footer {
     }
     .nav-links {
         padding-left: 0;
+        .nav-link {
+            margin-bottom: 20px;
+        }
         .nav-link, span  {
             color: #ffffff;
-            padding-left: 0;
-            padding-right: 0;
+            padding: 0;
             font-family: $domaine;
             font-style: normal;
             font-weight: normal;
@@ -108,7 +110,7 @@ footer {
             font-family: $circular;
             font-weight: normal;
             @include font-size(18px);
-            line-height: 0px;
+            line-height: 1;
             text-align: left;
             letter-spacing: 0.705em;
             color: #6C6C6C;

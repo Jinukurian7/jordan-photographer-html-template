@@ -11,8 +11,10 @@
             this.lazyLoad();
             this.detectAnimation();
             this.featuredSlider();
+            this.textAnim();
             this.changeBg();
             this.footerParallax();
+            this.mouseCursor();
         },
         settings: {
             desktop: 1200,
@@ -46,10 +48,10 @@
         // ScrollListner
         scrollListner: function () {
             $(window).scroll(function () {
-                if ($(window).scrollTop() > 150) {
-                    $('.site__header').addClass('fixed');
+                if ($(window).scrollTop() > $('.banner').height()) {
+                    $('.site__header').addClass('active');
                 } else {
-                    $('.site__header').removeClass('fixed');
+                    $('.site__header').removeClass('active');
                 }
                
                 if (JORDAN.settings.scrollTimerId)
@@ -65,8 +67,10 @@
                 var wd = event.originalEvent.wheelDelta || -event.originalEvent.detail;
                 if (wd < 0) {
                     $('body').removeClass('scrollingUp').addClass('scrollingDown');
+                    $('.site__header').removeClass('fixed');
                 } else {
                     $('body').removeClass('scrollingDown').addClass('scrollingUp');
+                    $('.site__header').addClass('fixed');
                 }
             });
         },
@@ -109,6 +113,10 @@
         },
 
         loadAnim: function() {
+            $('.o-title').html(function(index, html) {
+                return html.replace(/\S/g, '<span>$&</span>');
+            });
+
             var tl = new TimelineMax();
             tl.to($('#mask'), 0.75, {
                 y: '-100%',
@@ -128,7 +136,12 @@
                 y: -50, 
                 ease: Power1.ease0ut,
             }, 0.25, '-=0.5' )
-            .from($('.navbar-brand'), 0.75, { scale: 1.1, autoAlpha: 0 }, '-=0.25')
+            .from($('.navbar-brand'), 0.75, { 
+                scale: 1.1, 
+                autoAlpha: 0 
+            }, '-=0.25')
+            .staggerFromTo($('.banner .title > span'), 0.5, { y: 300, ease: Power2.ease0ut }, { y: 0, }, 0.075, '-=0.75')
+            .from('.banner .u-text', 0.5, { autoAlpha: 0 })
         },
 
         // Lazy load images 
@@ -432,9 +445,30 @@
             })
         },
 
+        textAnim: function() {
+            
+            var $title = $('.section .title');
+            var controller = new ScrollMagic.Controller();
+            $title.each(function() {
+                var tween = TweenMax.staggerFromTo($(this).find('span'), 0.5, {
+                    y: 300,
+                    ease: Power2.ease0ut
+                },
+                {
+                    y: 0,
+                }, 0.075);
+                var scene = new ScrollMagic.Scene({
+                    triggerElement: this,
+                    triggerHook: 1,
+                    reverse: false
+                })
+                .setTween(tween)
+                .addTo(controller);
+            });
+        },
+
         footerParallax: function() {
-			var tween = TweenMax.to('.jordan-image', 1,
-                { marginBottom: 0}
+			var tween = TweenMax.to('.jordan-image', 1,{ marginBottom: 0 }
             );
 
             var controller = new ScrollMagic.Controller();
@@ -448,6 +482,9 @@
             .setTween(tween)
             .addTo(controller);
         },
+        mouseCursor: function() {
+            
+        }
     };
     JORDAN.init();
 }(jQuery));
